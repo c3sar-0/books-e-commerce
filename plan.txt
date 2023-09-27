@@ -1,0 +1,24 @@
+book e-commerce.
+
+apps:
+|- authentication
+|- users
+|- products
+|- orders
+
+endpoints:
+|- Products:
+|- /api/products/ GET POST
+|- /api/products/<product_id>/ GET DELETE PUT
+|
+|- Orders:
+|- /api/orders/ GET POST
+|- /api/orders/<order_id>/ GET DELETE PUT
+|
+|- Authentication:
+|- /api/auth/register/ POST
+|- /api/auth/login/ POST
+|
+|- Users:
+|- /api/users/<user_id>/ GET PUT DELETE
+|- /api/users/me/ GET PUT
