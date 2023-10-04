@@ -30,6 +30,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     "Custom user model"
     email = models.EmailField(max_length=50, unique=True, blank=False)
     username = models.CharField(max_length=50, blank=False)
+
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateField(auto_now_add=True)
