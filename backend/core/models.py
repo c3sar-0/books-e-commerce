@@ -4,6 +4,7 @@ from django.contrib.auth.models import (
     BaseUserManager,
     PermissionsMixin,
 )
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class UserManager(BaseUserManager):
@@ -40,3 +41,26 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return "@{}".format(self.username)
+
+
+class Product(models.Model):
+    """Model for representing products."""
+
+    name = models.CharField(max_length=255)
+    description = models.TextField(max_length=10000)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    stock = models.IntegerField()
+    image = models.ImageField(upload_to="products", null=True, blank=True)
+
+
+class Review(models.Model):
+    """Product reviews. One to many relationship."""
+
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="reviews")
+    product = models.ForeignKey(
+        "Product", on_delete=models.CASCADE, related_name="reviews"
+    )
+    rating = models.IntegerField(
+        validators=[MaxValueValidator(5), MinValueValidator(1)]
+    )
+    description = models.TextField(max_length=10000)

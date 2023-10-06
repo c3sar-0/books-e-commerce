@@ -8,8 +8,8 @@ apps:
 
 endpoints:
 |- Products:
-|- /api/products/ GET POST
-|- /api/products/<product_id>/ GET DELETE PUT
+|- /api/products/ GET
+|- /api/products/<product_id>/ GET (admin should be able to delete/update products. And upload too (previous ep))
 |
 |- Orders:
 |- /api/orders/ GET POST
