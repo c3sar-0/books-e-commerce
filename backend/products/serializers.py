@@ -11,6 +11,8 @@ class ProductListSerializer(serializers.Serializer):
     image = serializers.ImageField()
     rating = serializers.SerializerMethodField()
 
+    # I don't think it's good to calculate the rating every time someone wants to get the object.
+    # Maybe it should be re-calculated at the model everytime someone creates a new review
     def get_rating(self, obj):
         sum = 0
         count = 0
