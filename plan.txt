@@ -10,6 +10,8 @@ endpoints:
 |- Products:
 |- /api/products/ GET
 |- /api/products/<product_id>/ GET (admin should be able to delete/update products. And upload too (previous ep))
+|- /api/products/<product_id>/reviews/ GET POST
+|- /api/products/<product_id>/reviews/<review_id>/ GET PUT DELETE
 |
 |- Orders:
 |- /api/orders/ GET POST
